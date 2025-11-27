@@ -391,3 +391,43 @@ footer {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+:root {
+    /* Couleurs par défaut (Dark Mode) */
+    --primary-color: #00d2d3;
+    --bg-color: #0f172a;       /* Fond sombre */
+    --bg-alt: #1e293b;         /* Fond sombre secondaire */
+    --text-color: #e2e8f0;     /* Texte clair */
+    --text-muted: #94a3b8;
+    --card-border: rgba(255,255,255,0.05);
+}
+
+/* Couleurs du Light Mode */
+body.light-mode {
+    --bg-color: #ffffff;       /* Fond blanc */
+    --bg-alt: #f1f5f9;         /* Gris très clair */
+    --text-color: #1e293b;     /* Texte sombre */
+    --text-muted: #64748b;
+    --card-border: rgba(0,0,0,0.1);
+}
+
+/* Style du bouton switch */
+.theme-switch {
+    margin-right: 20px; /* Espace avec le burger */
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.theme-switch:hover {
+    color: var(--primary-color);
+    transform: rotate(20deg);
+}
+
+/* Pour mobile : s'assurer que le bouton est visible */
+@media screen and (max-width: 768px) {
+    .theme-switch {
+        margin-left: auto; /* Pousse le bouton vers la droite à côté du burger */
+        margin-right: 20px;
+    }
+}

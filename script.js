@@ -75,3 +75,38 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+// --- 3. DARK/LIGHT MODE TOGGLE ---
+const themeBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Vérifier si l'utilisateur avait déjà choisi un mode
+const currentTheme = localStorage.getItem('selected-theme');
+const currentIcon = localStorage.getItem('selected-icon');
+
+if (currentTheme) {
+    body.classList[currentTheme === 'light' ? 'add' : 'remove']('light-mode');
+    themeBtn.classList[currentIcon === 'fa-sun' ? 'add' : 'remove']('fa-sun');
+    themeBtn.classList[currentIcon === 'fa-moon' ? 'add' : 'remove']('fa-moon'); // Nettoyage au cas où
+    
+    // Si c'est le mode clair, on s'assure que l'icône est le soleil
+    if (currentTheme === 'light') {
+        themeBtn.classList.remove('fa-moon');
+        themeBtn.classList.add('fa-sun');
+    }
+}
+
+themeBtn.addEventListener('click', () => {
+    // Basculer la classe CSS
+    body.classList.toggle('light-mode');
+    
+    // Basculer l'icône (Si c'est Lune -> Soleil, sinon Soleil -> Lune)
+    if (themeBtn.classList.contains('fa-moon')) {
+        themeBtn.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        themeBtn.classList.replace('fa-sun', 'fa-moon');
+    }
+
+    // Sauvegarder le choix de l'utilisateur
+    localStorage.setItem('selected-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+    localStorage.setItem('selected-icon', themeBtn.classList.contains('fa-sun') ? 'fa-sun' : 'fa-moon');
+});
