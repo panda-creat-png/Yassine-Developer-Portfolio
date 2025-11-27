@@ -431,3 +431,18 @@ body.light-mode {
         margin-right: 20px;
     }
 }
+/* Espace bin lktaba o l'icon f bouton */
+.btn i {
+    margin-left: 8px; /* Espace 3la limn dyal lktaba */
+}
+
+/* Zwa9 dyal bouton CV mli tdoz 3liha souris */
+.primary-btn:hover i {
+    animation: bounce 0.5s infinite alternate;
+}
+
+/* Animation sghira bash l'icon tthrk */
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(3px); }
+}
