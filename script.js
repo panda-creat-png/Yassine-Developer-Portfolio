@@ -1,205 +1,101 @@
-// =============================================
-// Yassine Bistaine — Premium Portfolio JS
-// =============================================
+lucide.createIcons();
 
-gsap.registerPlugin(ScrollTrigger);
+const header = document.querySelector('.site-header');
+const progress = document.querySelector('.progress');
+const menuButton = document.querySelector('.menu-button');
+const nav = document.querySelector('#nav');
 
-// --- Preloader ---
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("preloader").classList.add("hidden");
-        initAnimations();
-    }, 1400);
+function onScroll() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+  header.classList.toggle('scrolled', scrollY > 50);
+}
+
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+menuButton.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menuButton.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}"></i>`;
+  lucide.createIcons();
 });
 
-// --- Scroll Progress ---
-const scrollProgress = document.querySelector(".scroll-progress");
-window.addEventListener("scroll", () => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    scrollProgress.style.width = h > 0 ? (window.scrollY / h) * 100 + "%" : "0%";
-});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
 
-// --- Header scroll ---
-const header = document.getElementById("header");
-window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 40);
-});
-
-// --- Mobile Nav ---
-const navToggle = document.getElementById("nav-toggle");
-const navMenu = document.getElementById("nav-menu");
-
-navToggle.addEventListener("click", () => {
-    navToggle.classList.toggle("active");
-    navMenu.classList.toggle("active");
-});
-
-navMenu.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-        navToggle.classList.remove("active");
-        navMenu.classList.remove("active");
-    });
-});
-
-// --- Active Nav Link ---
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link:not(.nav-cta)");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === "#" + current);
-    });
-});
-
-// --- Typing Effect ---
-const typedEl = document.querySelector(".typing-text");
-const texts = [
-    "Full Stack Developer",
-    "Junior Developer Avancé",
-    "Problem Solver",
-    "React & Node.js Dev"
-];
-let textIdx = 0, charIdx = 0, isDeleting = false;
-
-function typeLoop() {
-    const current = texts[textIdx];
-    if (!isDeleting) {
-        typedEl.textContent = current.substring(0, charIdx + 1);
-        charIdx++;
-        if (charIdx === current.length) {
-            isDeleting = true;
-            setTimeout(typeLoop, 2200);
-            return;
-        }
-        setTimeout(typeLoop, 70);
-    } else {
-        typedEl.textContent = current.substring(0, charIdx - 1);
-        charIdx--;
-        if (charIdx === 0) {
-            isDeleting = false;
-            textIdx = (textIdx + 1) % texts.length;
-            setTimeout(typeLoop, 500);
-            return;
-        }
-        setTimeout(typeLoop, 35);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     }
-}
+  });
+}, { threshold: 0.12 });
 
-// --- Photo Tilt Effect ---
-const photoTilt = document.getElementById("photo-tilt");
-if (photoTilt && window.matchMedia("(pointer: fine)").matches) {
-    photoTilt.addEventListener("mousemove", (e) => {
-        const rect = photoTilt.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        photoTilt.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-    });
-    photoTilt.addEventListener("mouseleave", () => {
-        photoTilt.style.transform = "perspective(800px) rotateY(0) rotateX(0)";
-    });
-}
-
-// --- Counter Animation ---
-function animateCounters() {
-    document.querySelectorAll(".stat-num").forEach(counter => {
-        const target = +counter.dataset.target;
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-
-        const update = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(update);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        update();
-    });
-}
-
-// --- Skill Bars Animation ---
-function animateSkillBars() {
-    document.querySelectorAll(".skill-bar-fill").forEach(bar => {
-        bar.style.width = bar.dataset.width + "%";
-    });
-}
-
-// --- GSAP Animations ---
-function initAnimations() {
-    typeLoop();
-
-    // Hero reveals
-    gsap.to(".hero-text .reveal", {
-        y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: "power3.out", delay: 0.2
-    });
-    gsap.to(".hero-photo.reveal", {
-        y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.4
-    });
-
-    // Section reveals
-    gsap.utils.toArray(".reveal").forEach(el => {
-        if (el.closest(".hero-text") || el.classList.contains("hero-photo")) return;
-        gsap.to(el, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 88%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out"
-        });
-    });
-
-    // Stats counter
-    ScrollTrigger.create({
-        trigger: ".stats-bar",
-        start: "top 80%",
-        once: true,
-        onEnter: animateCounters
-    });
-
-    // Skill bars
-    ScrollTrigger.create({
-        trigger: ".skills-layout",
-        start: "top 75%",
-        once: true,
-        onEnter: animateSkillBars
-    });
-
-    // Timeline stagger
-    gsap.from(".timeline-item", {
-        scrollTrigger: { trigger: ".timeline", start: "top 80%" },
-        x: -40, opacity: 0, duration: 0.7, stagger: 0.2, ease: "power3.out"
-    });
-
-    // Project cards
-    gsap.from(".project-card", {
-        scrollTrigger: { trigger: ".projects-layout", start: "top 80%" },
-        y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"
-    });
-}
-
-// --- Theme Toggle ---
-const themeBtn = document.getElementById("theme-toggle");
-const themeIcon = themeBtn.querySelector("i");
-
-if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-    themeIcon.classList.replace("fa-moon", "fa-sun");
-}
-
-themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    const isLight = document.body.classList.contains("light-mode");
-    themeIcon.classList.replace(isLight ? "fa-moon" : "fa-sun", isLight ? "fa-sun" : "fa-moon");
-    localStorage.setItem("theme", isLight ? "light" : "dark");
+document.querySelectorAll('.reveal').forEach((el, index) => {
+  if (el.closest('.hero')) el.style.transitionDelay = `${index * 80}ms`;
+  observer.observe(el);
 });
+
+function initScene() {
+  if (!window.THREE) return;
+  const canvas = document.querySelector('#scene');
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  camera.position.set(0, 0, 8);
+
+  const group = new THREE.Group();
+  scene.add(group);
+  const geometry = new THREE.IcosahedronGeometry(2.15, 2);
+  const solid = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x20261e, roughness: 0.26, metalness: 0.45, flatShading: true }));
+  const wire = new THREE.LineSegments(new THREE.WireframeGeometry(geometry), new THREE.LineBasicMaterial({ color: 0xc7ff4a, transparent: true, opacity: 0.48 }));
+  group.add(solid, wire);
+  group.position.set(2.8, 0.15, 0);
+  group.rotation.set(-0.18, 0.3, 0.12);
+
+  const smallGeometry = new THREE.TorusGeometry(0.75, 0.035, 10, 80);
+  const ring = new THREE.Mesh(smallGeometry, new THREE.MeshBasicMaterial({ color: 0xff7657 }));
+  ring.position.set(2.9, 0.1, 1.1);
+  ring.rotation.x = 1.2;
+  scene.add(ring);
+  scene.add(new THREE.HemisphereLight(0xf2f0e9, 0x111410, 2.8));
+  const light = new THREE.DirectionalLight(0xc7ff4a, 4);
+  light.position.set(4, 4, 5);
+  scene.add(light);
+
+  let pointerX = 0, pointerY = 0;
+  addEventListener('pointermove', event => {
+    pointerX = (event.clientX / innerWidth - 0.5) * 0.55;
+    pointerY = (event.clientY / innerHeight - 0.5) * 0.35;
+  }, { passive: true });
+
+  function resize() {
+    const hero = document.querySelector('.hero');
+    renderer.setSize(hero.clientWidth, hero.clientHeight, false);
+    camera.aspect = hero.clientWidth / hero.clientHeight;
+    camera.updateProjectionMatrix();
+    group.position.x = innerWidth < 760 ? 1.25 : 2.8;
+    group.position.y = innerWidth < 760 ? 1.45 : 0.15;
+    group.scale.setScalar(innerWidth < 760 ? 0.72 : 1);
+  }
+  addEventListener('resize', resize);
+  resize();
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function render(time = 0) {
+    group.rotation.y += (pointerX + time * 0.00008 - group.rotation.y) * 0.035;
+    group.rotation.x += (-pointerY - group.rotation.x) * 0.035;
+    ring.rotation.z = time * 0.00035;
+    renderer.render(scene, camera);
+    if (!reduced) requestAnimationFrame(render);
+  }
+  render();
+}
+
+initScene();

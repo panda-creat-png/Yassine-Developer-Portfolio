@@ -1,468 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yassine Bistaine — Advanced Junior Full Stack Developer. Building modern web applications from Laâyoune, Morocco.">
-    <meta name="author" content="Yassine Bistaine">
-    <title>Yassine Bistaine · Advanced Junior Full Stack Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yassine Bistaine, full-stack developer in Laayoune, Morocco. Laravel, React and JavaScript projects.">
+  <meta name="theme-color" content="#111410">
+  <title>Yassine Bistaine | Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="syerli.css">
 </head>
 <body>
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <span class="preloader-logo">Y<span>B</span></span>
-            <div class="preloader-bar"><div class="preloader-progress"></div></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Yassine Bistaine, home">YB<span>/</span>DEV</a>
+    <nav id="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-github" href="https://github.com/panda-creat-png" target="_blank" rel="noreferrer" aria-label="Open Yassine's GitHub">
+      <i data-lucide="github"></i><span>GitHub</span>
+    </a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i data-lucide="menu"></i></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <canvas id="scene" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow reveal"><span></span> Available for opportunities</p>
+        <h1 class="reveal">Yassine<br><strong>Bistaine.</strong></h1>
+        <div class="hero-bottom reveal">
+          <p>Full-stack developer turning complex requirements into clear, reliable digital products.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my work <i data-lucide="arrow-down-right"></i></a>
+            <a class="button button-quiet" href="Yassine Bistaine.pdf" download>Download CV <i data-lucide="download"></i></a>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>LAAYOUNE / MA</span><span>SCROLL TO DISCOVER</span></div>
+    </section>
 
-    <div class="noise"></div>
-    <div class="scroll-progress"></div>
-
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#home" class="nav-logo">Yassine<span class="dot">.</span>dev</a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Journey</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Work</a></li>
-                <li><a href="#contact" class="nav-link nav-cta">Hire Me</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section id="home" class="hero">
-            <div class="hero-bg">
-                <div class="hero-orb hero-orb-1"></div>
-                <div class="hero-orb hero-orb-2"></div>
-                <div class="hero-orb hero-orb-3"></div>
-            </div>
-            <div class="container hero-grid">
-                <div class="hero-text">
-                    <div class="hero-status reveal">
-                        <span class="status-dot"></span>
-                        Open to freelance & internship opportunities
-                    </div>
-                    <p class="hero-eyebrow reveal">Hello, I'm</p>
-                    <h1 class="hero-title reveal">
-                        Yassine<br>
-                        <span class="gradient-text">Bistaine</span>
-                    </h1>
-                    <p class="hero-subtitle reveal">
-                        Advanced Junior <span class="typing-text"></span><span class="typing-cursor">|</span>
-                    </p>
-                    <p class="hero-desc reveal">
-                        I design and build full stack web applications with clean architecture,
-                        modern UI, and production-ready code — currently advancing my skills at
-                        <strong>CMC Laâyoune</strong>.
-                    </p>
-                    <div class="hero-actions reveal">
-                        <a href="Yassine Bistaine.pdf" download class="btn btn-primary">
-                            <span>Download CV</span>
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                        <a href="#projects" class="btn btn-secondary">
-                            <span>View My Work</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="hero-socials reveal">
-                        <a href="https://github.com/panda-creat-png" target="_blank" rel="noopener" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/yassine-bistaine-074a7b334" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-photo reveal">
-                    <div class="photo-wrapper" id="photo-tilt">
-                        <div class="photo-glow"></div>
-                        <div class="photo-border"></div>
-                        <img src="image/profile.jpg" alt="Yassine Bistaine — Full Stack Developer" class="photo-img">
-                        <div class="photo-badge photo-badge-top">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Available</span>
-                        </div>
-                        <div class="photo-badge photo-badge-bottom">
-                            <div class="badge-icon"><i class="fas fa-code"></i></div>
-                            <div>
-                                <strong>Full Stack Dev</strong>
-                                <span>Junior Avancé</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="floating-tag tag-1"><i class="fab fa-react"></i> React</div>
-                    <div class="floating-tag tag-2"><i class="fab fa-node-js"></i> Node.js</div>
-                    <div class="floating-tag tag-3"><i class="fab fa-laravel"></i> Laravel</div>
-                </div>
-            </div>
-
-            <div class="hero-marquee">
-                <div class="marquee-track">
-                    <span><i class="fab fa-react"></i> React.js</span>
-                    <span><i class="fab fa-node-js"></i> Node.js</span>
-                    <span><i class="fab fa-laravel"></i> Laravel</span>
-                    <span><i class="fab fa-js"></i> JavaScript</span>
-                    <span><i class="fab fa-python"></i> Python</span>
-                    <span><i class="fas fa-database"></i> MongoDB</span>
-                    <span><i class="fas fa-database"></i> MySQL</span>
-                    <span><i class="fab fa-docker"></i> Docker</span>
-                    <span><i class="fab fa-git-alt"></i> Git</span>
-                    <span><i class="fab fa-react"></i> React.js</span>
-                    <span><i class="fab fa-node-js"></i> Node.js</span>
-                    <span><i class="fab fa-laravel"></i> Laravel</span>
-                    <span><i class="fab fa-js"></i> JavaScript</span>
-                    <span><i class="fab fa-python"></i> Python</span>
-                    <span><i class="fas fa-database"></i> MongoDB</span>
-                    <span><i class="fas fa-database"></i> MySQL</span>
-                    <span><i class="fab fa-docker"></i> Docker</span>
-                    <span><i class="fab fa-git-alt"></i> Git</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- STATS -->
-        <section class="stats-bar">
-            <div class="container stats-grid">
-                <div class="stat-item reveal">
-                    <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
-                    <span class="stat-text">Technologies Mastered</span>
-                </div>
-                <div class="stat-item reveal">
-                    <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
-                    <span class="stat-text">Projects Completed</span>
-                </div>
-                <div class="stat-item reveal">
-                    <span class="stat-num" data-target="1">0</span><span class="stat-plus">+</span>
-                    <span class="stat-text">Year of Experience</span>
-                </div>
-                <div class="stat-item reveal">
-                    <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
-                    <span class="stat-text">Commitment & Passion</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-num">01</span>
-                    <div>
-                        <span class="section-label">About Me</span>
-                        <h2 class="section-title">Crafting digital experiences<br>with purpose & precision</h2>
-                    </div>
-                </div>
-                <div class="about-layout">
-                    <div class="about-photo reveal">
-                        <img src="image/profile.jpg" alt="Yassine Bistaine">
-                        <div class="about-photo-deco"></div>
-                    </div>
-                    <div class="about-body reveal">
-                        <p class="about-lead">
-                            I'm <strong>Yassine Bistaine</strong>, an advanced junior full stack developer
-                            from <strong>Laâyoune, Morocco</strong>. I don't just write code — I build
-                            solutions that are scalable, maintainable, and user-focused.
-                        </p>
-                        <p>
-                            My journey at <strong>CMC Laâyoune-Sakia El Hamra</strong> has pushed me beyond
-                            fundamentals into real-world development: REST APIs, responsive interfaces,
-                            database design, and deployment workflows.
-                        </p>
-                        <div class="about-cards">
-                            <div class="about-card">
-                                <div class="about-card-icon"><i class="fas fa-layer-group"></i></div>
-                                <h4>Full Stack</h4>
-                                <p>End-to-end development from UI to database</p>
-                            </div>
-                            <div class="about-card">
-                                <div class="about-card-icon"><i class="fas fa-bolt"></i></div>
-                                <h4>Fast Learner</h4>
-                                <p>Quick to adopt new frameworks & tools</p>
-                            </div>
-                            <div class="about-card">
-                                <div class="about-card-icon"><i class="fas fa-shield-alt"></i></div>
-                                <h4>Clean Code</h4>
-                                <p>Readable, tested, production-ready work</p>
-                            </div>
-                            <div class="about-card">
-                                <div class="about-card-icon"><i class="fas fa-handshake"></i></div>
-                                <h4>Team Ready</h4>
-                                <p>Git workflows, agile mindset, clear communication</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section id="experience" class="section section-dark">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-num">02</span>
-                    <div>
-                        <span class="section-label">My Journey</span>
-                        <h2 class="section-title">Education & Growth</h2>
-                    </div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2024 — Present</span>
-                            <h3>Full Stack Development</h3>
-                            <p class="timeline-org">CMC Laâyoune-Sakia El Hamra</p>
-                            <p>Intensive training in modern web development — React, Node.js, Laravel, databases, and software engineering principles.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2025</span>
-                            <h3>Personal Projects</h3>
-                            <p class="timeline-org">Self-Directed Learning</p>
-                            <p>Built full stack applications including an e-commerce dashboard and a student portal — applying real-world architecture patterns.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Ongoing</span>
-                            <h3>Open Source & GitHub</h3>
-                            <p class="timeline-org">panda-creat-png</p>
-                            <p>Contributing to personal repositories, practicing version control, CI/CD basics, and collaborative development workflows.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="section">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-num">03</span>
-                    <div>
-                        <span class="section-label">Expertise</span>
-                        <h2 class="section-title">Technologies I work with</h2>
-                    </div>
-                </div>
-                <div class="skills-layout">
-                    <div class="skill-group reveal">
-                        <div class="skill-group-head">
-                            <i class="fab fa-html5"></i>
-                            <h3>Frontend</h3>
-                        </div>
-                        <div class="skill-bars">
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>React.js</span><span>85%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>JavaScript</span><span>90%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>HTML / CSS</span><span>95%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Tailwind CSS</span><span>80%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-group reveal">
-                        <div class="skill-group-head">
-                            <i class="fab fa-node-js"></i>
-                            <h3>Backend</h3>
-                        </div>
-                        <div class="skill-bars">
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Node.js / Express</span><span>82%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Laravel / PHP</span><span>78%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Python</span><span>70%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>REST APIs</span><span>85%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-group reveal">
-                        <div class="skill-group-head">
-                            <i class="fas fa-database"></i>
-                            <h3>Database & DevOps</h3>
-                        </div>
-                        <div class="skill-bars">
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>MongoDB</span><span>80%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>MySQL</span><span>82%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Git / GitHub</span><span>88%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-bar-info"><span>Docker</span><span>65%</span></div>
-                                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="section section-dark">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-num">04</span>
-                    <div>
-                        <span class="section-label">Portfolio</span>
-                        <h2 class="section-title">Selected work & projects</h2>
-                    </div>
-                </div>
-                <div class="projects-layout">
-                    <article class="project-card project-featured">
-                        <div class="project-visual pv-1">
-                            <div class="project-mock">
-                                <div class="mock-bar"><span></span><span></span><span></span></div>
-                                <div class="mock-body">
-                                    <div class="mock-sidebar"></div>
-                                    <div class="mock-content">
-                                        <div class="mock-line w80"></div>
-                                        <div class="mock-line w60"></div>
-                                        <div class="mock-cards">
-                                            <div></div><div></div><div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-hover">
-                                <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-btn project-btn-outline"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-index">01</span>
-                            <h3>E-Commerce Dashboard</h3>
-                            <p>A scalable admin panel with real-time analytics, product management, order tracking, and dynamic reporting — built for performance.</p>
-                            <div class="project-stack">
-                                <span>React</span><span>Node.js</span><span>MongoDB</span><span>Tailwind</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-visual pv-2">
-                            <div class="project-mock mock-portal">
-                                <div class="mock-bar"><span></span><span></span><span></span></div>
-                                <div class="mock-portal-body">
-                                    <div class="mock-hero-block"></div>
-                                    <div class="mock-grid-2"><div></div><div></div></div>
-                                </div>
-                            </div>
-                            <div class="project-hover">
-                                <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-btn project-btn-outline"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-index">02</span>
-                            <h3>CMC Student Portal</h3>
-                            <p>Mobile-first digital hub for students — schedules, grades, campus news, and a custom CMS backend.</p>
-                            <div class="project-stack">
-                                <span>Laravel</span><span>MySQL</span><span>Bootstrap</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="contact-wrapper reveal">
-                    <div class="contact-left">
-                        <span class="section-label">Get In Touch</span>
-                        <h2 class="section-title">Let's build something<br><span class="gradient-text">great together</span></h2>
-                        <p>Whether it's a freelance project, internship, or just a conversation about tech — my inbox is always open.</p>
-                        <div class="contact-details">
-                            <a href="mailto:yassine.bistaine@gmail.com" class="contact-detail">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <span>Email</span>
-                                    <strong>yassine.bistaine@gmail.com</strong>
-                                </div>
-                            </a>
-                            <div class="contact-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <span>Location</span>
-                                    <strong>Laâyoune, Morocco</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-right">
-                        <div class="contact-card">
-                            <h3>Ready to collaborate?</h3>
-                            <p>Download my CV or connect with me on social media.</p>
-                            <a href="Yassine Bistaine.pdf" download class="btn btn-primary btn-full">
-                                <span>Download CV</span>
-                                <i class="fas fa-download"></i>
-                            </a>
-                            <div class="contact-socials">
-                                <a href="https://github.com/panda-creat-png" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/yassine-bistaine-074a7b334" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="mailto:yassine.bistaine@gmail.com"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <p>&copy; 2026 <strong>Yassine Bistaine</strong>. Crafted with precision in Laâyoune.</p>
-            <a href="#home" class="footer-top"><i class="fas fa-arrow-up"></i></a>
+    <section class="intro section" id="about">
+      <div class="section-kicker reveal"><span>01</span> Profile</div>
+      <div class="intro-layout">
+        <div class="portrait-wrap reveal">
+          <img src="image/profile.jpg" alt="Portrait of Yassine Bistaine" width="1086" height="1448">
+          <span class="portrait-label">FULL-STACK<br>DEVELOPER</span>
         </div>
-    </footer>
+        <div class="intro-copy reveal">
+          <h2>I build for people,<br>not just browsers.</h2>
+          <p class="lead">I am a junior full-stack developer based in Laayoune, focused on useful web products with strong foundations and thoughtful interfaces.</p>
+          <p>My training at CMC Laayoune-Sakia El Hamra and hands-on projects cover React interfaces, Laravel applications, relational databases and practical Git workflows.</p>
+          <div class="quick-facts">
+            <div><strong>05</strong><span>Public repositories</span></div>
+            <div><strong>2024</strong><span>Development journey started</span></div>
+            <div><strong>FR / AR</strong><span>Communication</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <section class="projects section" id="projects">
+      <div class="section-kicker reveal"><span>02</span> Selected work</div>
+      <div class="section-heading reveal">
+        <h2>Projects built to solve<br>real problems.</h2>
+        <a href="https://github.com/panda-creat-png?tab=repositories" target="_blank" rel="noreferrer">All repositories <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-list">
+        <article class="project reveal">
+          <div class="project-number">01</div>
+          <div class="project-art art-syerli" aria-hidden="true">
+            <div class="event-pass">
+              <div class="event-pass-head"><span>SYERLI / EVENT ACCESS</span><b>LIVE</b></div>
+              <div class="event-pass-body">
+                <div><small>INVITATION</small><strong>YOUR EVENT<br>STARTS HERE.</strong><span>GUEST / 001</span></div>
+                <div class="qr-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="scan-line"></div>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span class="team-tag">Collaborative project</span><span>React</span><span>Laravel</span><span>Node.js</span></div>
+            <h3>Syerli</h3>
+            <p>A smart event platform for managing guests, automated WhatsApp invitations, secure QR tickets and real-time access control.</p>
+            <div class="project-actions">
+              <a class="project-link" href="https://syerli.site" target="_blank" rel="noreferrer" aria-label="Open Syerli live website"><i data-lucide="globe"></i> Live website <i data-lucide="arrow-up-right"></i></a>
+              <a class="project-link secondary" href="https://github.com/ANASS-AIT-BELAGOUIM/Syerli_App" target="_blank" rel="noreferrer" aria-label="View Syerli source code"><i data-lucide="github"></i> Team repository <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reverse reveal">
+          <div class="project-number">02</div>
+          <div class="project-art art-trading" aria-hidden="true">
+            <div class="trade-window"><div class="trade-top"><span></span><span></span><span></span></div><div class="trade-chart"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="trade-stats"><span>WIN RATE <b>68%</b></span><span>NET P/L <b>+2.4K</b></span></div></div>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>PHP</span><span>JavaScript</span><span>Analytics</span></div>
+            <h3>Trading Performance</h3>
+            <p>A web-based session tracker for monitoring, analysing and visualising trading profit and loss performance.</p>
+            <a class="project-link" href="https://github.com/panda-creat-png/trading-performance" target="_blank" rel="noreferrer" aria-label="View Trading Performance source code"><i data-lucide="github"></i> View source <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-number">03</div>
+          <div class="project-art art-archive" aria-hidden="true">
+            <div class="folder-stack"><div class="folder f-one"><span>ARCHIVE / 2026</span></div><div class="folder f-two"><span>DOCUMENTS</span></div><div class="folder f-three"><i data-lucide="folder-archive"></i><strong>GESTION<br>D'ARCHIVE</strong></div></div>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>Laravel</span><span>MySQL</span><span>MVC</span></div>
+            <h3>Gestion Archive</h3>
+            <p>A secure document management system for creating, browsing, editing and deleting institutional archives.</p>
+            <a class="project-link" href="https://github.com/panda-creat-png/gestion-archive" target="_blank" rel="noreferrer" aria-label="View Gestion Archive source code"><i data-lucide="github"></i> View backend <i data-lucide="arrow-up-right"></i></a>
+            <a class="project-link secondary" href="https://github.com/panda-creat-png/front-gestion-archive" target="_blank" rel="noreferrer" aria-label="View archive frontend source code">Frontend repository <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+
+        <article class="project reverse reveal">
+          <div class="project-number">04</div>
+          <div class="project-art art-store" aria-hidden="true">
+            <div class="store-card card-back"><span>02</span></div><div class="store-card card-main"><div class="store-shape"></div><p>ESSENTIAL / 01</p><strong>240 MAD</strong></div><div class="cart-pill"><i data-lucide="shopping-bag"></i><span>2</span></div>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>React</span><span>CSS</span><span>State</span></div>
+            <h3>Mini Store</h3>
+            <p>A responsive e-commerce interface with product browsing, dynamic cart quantities and automatic totals.</p>
+            <a class="project-link" href="https://github.com/panda-creat-png/mini-store" target="_blank" rel="noreferrer" aria-label="View Mini Store source code"><i data-lucide="github"></i> View source <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills section" id="skills">
+      <div class="section-kicker reveal"><span>03</span> Capabilities</div>
+      <div class="skills-grid">
+        <div class="skills-title reveal"><h2>Tools I use to<br>ship the work.</h2><p>From UI and state to APIs and storage, I work across the product stack.</p></div>
+        <div class="skill-groups reveal">
+          <div class="skill-row"><span>Frontend</span><div><b>React</b><b>JavaScript</b><b>HTML</b><b>CSS</b><b>Responsive UI</b></div></div>
+          <div class="skill-row"><span>Backend</span><div><b>Laravel</b><b>PHP</b><b>REST APIs</b><b>MVC</b></div></div>
+          <div class="skill-row"><span>Data & tools</span><div><b>MySQL</b><b>Git</b><b>GitHub</b><b>Docker</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <p class="eyebrow reveal"><span></span> Have a project in mind?</p>
+      <h2 class="reveal">Let's make it<br><strong>work.</strong></h2>
+      <div class="contact-bottom reveal">
+        <a class="contact-email" href="mailto:ybistaine@gmail.com">ybistaine@gmail.com <i data-lucide="arrow-up-right"></i></a>
+        <div class="contact-links">
+          <a href="https://github.com/panda-creat-png" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/yassine-bistaine-074a7b334" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="Yassine Bistaine.pdf" download>CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>YASSINE BISTAINE</span><span>LAAYOUNE, MOROCCO</span><span>&copy; 2026</span></footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
